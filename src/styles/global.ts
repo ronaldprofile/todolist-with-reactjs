@@ -20,6 +20,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Roboto", sans-serif;
   }
 
+  input, button {
+    height: 5rem;
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+  }
+
   button {
     cursor: pointer;
   }
