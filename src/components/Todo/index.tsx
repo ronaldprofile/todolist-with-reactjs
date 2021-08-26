@@ -1,11 +1,20 @@
 import { Container } from "./styles";
 
-export function Todo() {
+interface ITodo {
+  id: number;
+  content: string;
+}
+
+interface ITodosProps {
+  todo: ITodo;
+}
+
+export function Todo({ todo }: ITodosProps) {
   return (
     <Container>
       <div className="todo">
-        <span>1</span>
-        <strong>Estudar ReactJS</strong>
+        <span>{todo.id}</span>
+        <strong>{todo.content}</strong>
         <button>
           <svg
             width="24"
