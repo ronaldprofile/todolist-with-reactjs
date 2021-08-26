@@ -5,11 +5,11 @@ interface ITodo {
   content: string;
 }
 
-interface ITodosProps {
+interface ITodoProps {
   todo: ITodo;
 }
 
-export function Todo({ todo }: ITodosProps) {
+export function Todo({ todo }: ITodoProps) {
   return (
     <Container>
       <div className="todo">
