@@ -1,33 +1,55 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Container } from "./styles";
+interface ITodo {
+  id: number;
+  content: string;
+}
+interface IAddTodoProps {
+  addTodoOnState: (todo: ITodo) => void;
+}
 
-export function AddTodo() {
-  const [todo, setTodo] = useState("");
+export function AddTodo({ addTodoOnState }: IAddTodoProps) {
+  const [inputValue, setInputValue] = useState("");
 
-  function saveTodo() {
-    console.log(todo);
+  function handleForm(event: FormEvent) {
+    event.preventDefault();
 
-    setTodo("");
+    if (inputValue.trim() === "") {
+      toast.error("Por favor preencha o campo");
+      return;
+    }
+
+    addTodoOnState({
+      id: 1,
+      content: inputValue
+    });
+
+    toast.success("Tarefa adicionada com sucesso");
+    setInputValue("");
   }
 
   return (
     <Container>
-      <form onSubmit={saveTodo}>
+      <form onSubmit={handleForm}>
         <div>
           <label htmlFor="task" className="sr-only">
-            Digite sua nova tarefa
+            Digite sua tarefa
           </label>
           <input
             type="text"
             id="task"
             placeholder="Digite sua tarefa"
             autoFocus
-            onChange={event => setTodo(event.target.value)}
-            value={todo}
+            onChange={event => setInputValue(event.target.value)}
+            value={inputValue}
           />
         </div>
 
         <button type="submit">Adicionar</button>
+        <ToastContainer />
       </form>
     </Container>
   );
