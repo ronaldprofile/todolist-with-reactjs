@@ -1,6 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+  
+  :root {
+    --todo-in-progress: rgba(232, 248, 232, 1);
+    --green-rgba: rgba(54, 178, 54, 1);
+
+    --todo-completed:  rgba(250, 236, 235, 1);
+    --red-rgba:  rgba(235, 59, 53, 1);
+  }
+  
+  
   * {
     margin: 0;
     padding: 0;
