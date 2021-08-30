@@ -7,7 +7,6 @@ export const Container = styled.div`
   form {
     display: flex;
     align-items: center;
-
     gap: 1.6rem;
 
     input {

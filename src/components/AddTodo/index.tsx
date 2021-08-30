@@ -1,11 +1,14 @@
 import { useState, FormEvent } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Container } from "./styles";
 interface ITodo {
-  id: number;
   content: string;
+  isCompleted: false;
+  key: string;
 }
 interface IAddTodoProps {
   addTodoOnState: (todo: ITodo) => void;
@@ -23,8 +26,9 @@ export function AddTodo({ addTodoOnState }: IAddTodoProps) {
     }
 
     addTodoOnState({
-      id: 1,
-      content: inputValue
+      content: inputValue,
+      isCompleted: false,
+      key: uuidv4()
     });
 
     toast.success("Tarefa adicionada com sucesso");
@@ -49,8 +53,8 @@ export function AddTodo({ addTodoOnState }: IAddTodoProps) {
         </div>
 
         <button type="submit">Adicionar</button>
-        <ToastContainer />
       </form>
+      <ToastContainer />
     </Container>
   );
 }
