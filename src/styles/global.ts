@@ -10,7 +10,6 @@ export const GlobalStyles = createGlobalStyle`
     --red-rgba:  rgba(235, 59, 53, 1);
   }
   
-  
   * {
     margin: 0;
     padding: 0;
@@ -30,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Roboto", sans-serif;
   }
 
-  input, button {
+  input {
     height: 5rem;
     padding: 0 2rem;
     font-size: 1.6rem;
