@@ -8,6 +8,7 @@ import { Todos } from "../Todos";
 import { Todo } from "../Todo";
 import { NoTodos } from "../NoTodos";
 
+import { Modal } from "../Modal";
 import { Container, Header } from "./styles";
 interface ICurrentTodoState {
   content: string;
@@ -17,6 +18,7 @@ interface ICurrentTodoState {
 
 export function Layout() {
   const [todos, setTodos] = useState<ICurrentTodoState[]>([]);
+  const [isModalActive, setModalActive] = useState(false);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("@todo.l")!);
@@ -37,7 +39,7 @@ export function Layout() {
       return todo.key === key ? { ...todo, content: "Outra coisa sabe" } : todo;
     });
 
-    console.log(filteredTodo);
+    setModalActive(true);
   }
 
   function markTodoAsCompleted(key: string) {
@@ -54,6 +56,10 @@ export function Layout() {
 
     setTodos(filteredTodo);
     toast.success("Tarefa deletada com sucesso");
+  }
+
+  function closeModal() {
+    setModalActive(false);
   }
 
   return (
@@ -76,6 +82,7 @@ export function Layout() {
           ))}
         </Todos>
       </Container>
+      {isModalActive && <Modal closeModal={closeModal} editTodo={editTodo} />}
     </div>
   );
 }

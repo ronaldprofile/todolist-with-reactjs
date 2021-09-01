@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface IContainerProps {
+  isCompleted: boolean;
+}
+
+export const Container = styled.div<IContainerProps>`
   width: 100%;
   padding: 2rem;
   position: relative;
@@ -34,10 +38,49 @@ export const Container = styled.div`
     height: 100%;
   }
 
+  strong {
+    text-decoration: ${props => props.isCompleted && "line-through"};
+  }
+
   .actions {
     display: flex;
     align-items: center;
     gap: 1.8rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.4rem;
+    font-size: 1.6rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    strong {
+      order: 1;
+      text-align: center;
+    }
+
+    .actions {
+      padding: 0.8rem 0;
+      position: relative;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        height: 1px;
+        width: 100%;
+        background-color: #eeeeee;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    font-size: 1.4rem;
   }
 `;
 

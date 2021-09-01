@@ -25,7 +25,7 @@ export function Todo({
   deleteTodo
 }: ITodoProps) {
   return (
-    <Container>
+    <Container isCompleted={todo.isCompleted}>
       <strong>{todo.content}</strong>
 
       <div className="actions">

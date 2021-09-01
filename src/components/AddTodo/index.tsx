@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Container } from "./styles";
+import { Button } from "../Button";
 interface ITodo {
   content: string;
   isCompleted: false;
@@ -50,11 +51,10 @@ export function AddTodo({ addTodoOnState }: IAddTodoProps) {
             onChange={event => setInputValue(event.target.value)}
             value={inputValue}
           />
+          <Button>Adicionar</Button>
         </div>
-
-        <button type="submit">Adicionar</button>
+        <ToastContainer />
       </form>
-      <ToastContainer />
     </Container>
   );
 }

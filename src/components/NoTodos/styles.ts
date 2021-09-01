@@ -11,8 +11,8 @@ export const Container = styled.div`
   text-align: center;
 
   img {
-    max-width: 400px;
-    height: 350px;
+    max-width: 40rem;
+    height: auto;
     object-fit: contain;
 
     animation: ${AnimationIllustration} 4s linear infinite;
@@ -23,5 +23,27 @@ export const Container = styled.div`
     font-weight: 700;
 
     color: #00004f;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-width: 30rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    margin-top: 3rem;
+
+    img {
+      max-width: 20rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
   }
 `;

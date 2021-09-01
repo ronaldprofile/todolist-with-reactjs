@@ -5,26 +5,27 @@ export const Container = styled.div`
   font-size: 1.6rem;
 
   form {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.6rem;
 
-    input {
-      min-width: 50rem;
-      outline: none;
-      border: 1px solid #e4e4e4;
+      > input {
+        width: 100%;
+        outline: none;
+        border: 1px solid #e4e4e4;
+      }
     }
+  }
 
-    > button {
-      flex: 1;
-      font-weight: 700;
-      background-color: #00297f;
-      color: #fff;
-      border: 0;
-      transition: filter 0.2s;
-
-      &:hover {
-        filter: brightness(1.3);
+  @media (max-width: 360px) {
+    form {
+      font-size: 1.4rem;
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
