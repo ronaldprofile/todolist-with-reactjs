@@ -8,7 +8,7 @@ export const Container = styled.div<IContainerProps>`
   width: 100%;
   padding: 2rem;
   position: relative;
-
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,6 +39,8 @@ export const Container = styled.div<IContainerProps>`
   }
 
   strong {
+    max-width: 60%;
+    word-wrap: break-word;
     text-decoration: ${props => props.isCompleted && "line-through"};
     color: ${props => props.isCompleted && "#747474"};
   }
@@ -82,6 +84,11 @@ export const Container = styled.div<IContainerProps>`
 
   @media (max-width: 360px) {
     font-size: 1.4rem;
+
+    strong {
+      max-width: 90%;
+      word-wrap: normal;
+    }
   }
 `;
 

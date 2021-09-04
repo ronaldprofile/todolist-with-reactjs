@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -18,6 +18,18 @@ export const ModalOverlay = styled.div`
   background: rgba(0, 0, 0, 0.7);
 `;
 
+const animationModalContent = keyframes`
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
+
 export const ModalContent = styled.div`
   padding: 6.4rem 3.2rem;
   position: relative;
@@ -26,6 +38,8 @@ export const ModalContent = styled.div`
 
   background-color: #fff;
   border-radius: 5px;
+
+  animation: ${animationModalContent} 0.3s ease;
 
   h2 {
     font-size: 3rem;
@@ -57,17 +71,6 @@ export const ModalContent = styled.div`
 
     input {
       border: 2px solid #eeeeee;
-    }
-
-    button {
-      background-color: #00297f;
-      color: #fff;
-
-      border: 0;
-      transition: filter 0.2s;
-      &:hover {
-        filter: brightness(1.3);
-      }
     }
   }
 

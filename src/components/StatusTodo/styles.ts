@@ -13,4 +13,8 @@ export const Container = styled.span<IStatusTodo>`
 
   color: ${props =>
     props.isCompleted ? "var(--red-rgba)" : "var(--green-rgba)"};
+
+  @media (max-width: 360px) {
+    padding: 0.4rem 1rem;
+  }
 `;
