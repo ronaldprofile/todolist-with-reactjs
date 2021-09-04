@@ -1,8 +1,8 @@
 import checkIcon from "../../images/check.svg";
 import editIcon from "../../images/edit.svg";
 import trashIcon from "../../images/trash.svg";
-import { StatusTodo } from "../StatusTodo";
 
+import { StatusTodo } from "../StatusTodo";
 import { Container, Buttons } from "./styles";
 
 interface ITodo {
@@ -14,15 +14,15 @@ interface ITodo {
 interface ITodoProps {
   todo: ITodo;
   markTodoAsCompleted: (key: string) => void;
-  editTodo: (key: string) => void;
   deleteTodo: (key: string) => void;
+  openModal: (todoKey: string) => void;
 }
 
 export function Todo({
   todo,
   markTodoAsCompleted,
-  editTodo,
-  deleteTodo
+  deleteTodo,
+  openModal
 }: ITodoProps) {
   return (
     <Container isCompleted={todo.isCompleted}>
@@ -38,7 +38,7 @@ export function Todo({
             </button>
           ) : (
             <>
-              <button onClick={() => editTodo(todo.key)} title="editar tarefa">
+              <button onClick={() => openModal(todo.key)} title="editar tarefa">
                 <img src={editIcon} alt="edit icon" />
               </button>
 

@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { AddTodo } from "../AddTodo";
 import { Todos } from "../Todos";
 import { Todo } from "../Todo";
 import { NoTodos } from "../NoTodos";
-
 import { Modal } from "../Modal";
+
 import { Container, Header } from "./styles";
+import { Logo } from "../Logo";
 interface ICurrentTodoState {
   content: string;
   isCompleted: boolean;
@@ -18,7 +17,9 @@ interface ICurrentTodoState {
 
 export function Layout() {
   const [todos, setTodos] = useState<ICurrentTodoState[]>([]);
-  const [isModalActive, setModalActive] = useState(false);
+  const [isModalActive, setIsModalActive] = useState(false);
+  const [currentKeyTodoHasModalEditOpen, setCurrentKeyTodoHasModalEditOpen] =
+    useState("");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("@todo.l")!);
@@ -34,37 +35,44 @@ export function Layout() {
     setTodos([...todos, todo]);
   }
 
-  function editTodo(key: string) {
+  function editTodo(keyTodo: string, newValue: string) {
     const filteredTodo = todos.map(todo => {
-      return todo.key === key ? { ...todo, content: "Outra coisa sabe" } : todo;
+      return todo.key === keyTodo ? { ...todo, content: newValue } : todo;
     });
 
-    setModalActive(true);
+    setTodos(filteredTodo);
   }
 
-  function markTodoAsCompleted(key: string) {
+  function markTodoAsCompleted(keyTodo: string) {
     const filteredTodo = todos.map(todo => {
-      return todo.key === key ? { ...todo, isCompleted: true } : todo;
+      return todo.key === keyTodo ? { ...todo, isCompleted: true } : todo;
     });
 
     setTodos(filteredTodo);
     toast.success("Tarefa concluída com sucesso");
   }
 
-  function deleteTodo(key: string) {
-    const filteredTodo = todos.filter(todo => todo.key !== key);
+  function deleteTodo(keyTodo: string) {
+    const filteredTodo = todos.filter(todo => todo.key !== keyTodo);
 
     setTodos(filteredTodo);
     toast.success("Tarefa deletada com sucesso");
   }
 
+  function openModal(keyTodo: string) {
+    setIsModalActive(true);
+    setCurrentKeyTodoHasModalEditOpen(keyTodo);
+  }
+
   function closeModal() {
-    setModalActive(false);
+    setIsModalActive(false);
   }
 
   return (
     <div>
-      <Header />
+      <Header>
+        <Logo />
+      </Header>
       <Container>
         <AddTodo addTodoOnState={addTodoOnState} />
 
@@ -76,13 +84,20 @@ export function Layout() {
               key={todo.key}
               todo={todo}
               deleteTodo={deleteTodo}
-              editTodo={editTodo}
               markTodoAsCompleted={markTodoAsCompleted}
+              openModal={openModal}
             />
           ))}
         </Todos>
       </Container>
-      {isModalActive && <Modal closeModal={closeModal} editTodo={editTodo} />}
+
+      {isModalActive && (
+        <Modal
+          keyTodo={currentKeyTodoHasModalEditOpen}
+          editTodo={editTodo}
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 }

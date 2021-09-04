@@ -1,24 +1,29 @@
-import { ModalOverlay, ModalContent } from "./styles";
-
-import closeIcon from "../../images/close.svg";
 import { FormEvent, useState } from "react";
+import { toast } from "react-toastify";
 import { Button } from "../Button";
 
+import closeIcon from "../../images/close.svg";
+import { ModalOverlay, ModalContent } from "./styles";
 interface IModalProps {
+  keyTodo: string;
+  editTodo: (key: string, newValue: string) => void;
   closeModal: () => void;
-  editTodo: (key: string) => void;
 }
 
-export function Modal({ closeModal }: IModalProps) {
+export function Modal({ closeModal, editTodo, keyTodo }: IModalProps) {
   const [newTodo, setNewTodo] = useState("");
 
   function handleForm(event: FormEvent) {
     event.preventDefault();
 
     if (newTodo.trim() === "") {
-      alert("Preencha o campo!");
+      toast.error("Por favor preencha o campo");
       return;
     }
+
+    editTodo(keyTodo, newTodo);
+    toast.success("Sua tarefa foi editada com sucesso");
+    closeModal();
   }
 
   return (

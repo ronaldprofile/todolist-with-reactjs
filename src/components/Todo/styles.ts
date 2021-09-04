@@ -40,6 +40,7 @@ export const Container = styled.div<IContainerProps>`
 
   strong {
     text-decoration: ${props => props.isCompleted && "line-through"};
+    color: ${props => props.isCompleted && "#747474"};
   }
 
   .actions {

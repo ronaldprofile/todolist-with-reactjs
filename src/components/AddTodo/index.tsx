@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Container } from "./styles";
 import { Button } from "../Button";
+import { Container } from "./styles";
 interface ITodo {
   content: string;
   isCompleted: false;
