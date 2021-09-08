@@ -1,11 +1,9 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes } from "react";
 
 import { Container } from "./styles";
 
-interface ButtonProps {
-  children: ReactNode;
-}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export function Button({ children }: ButtonProps) {
-  return <Container>{children}</Container>;
+export function Button({ children, ...rest }: ButtonProps) {
+  return <Container {...rest}>{children}</Container>;
 }

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
 import { AddTodo } from "../AddTodo";
-import { Todos } from "../Todos";
 import { Todo } from "../Todo";
 import { NoTodos } from "../NoTodos";
 import { Modal } from "../Modal";
-
-import { Container, Header } from "./styles";
 import { Logo } from "../Logo";
+import { Profile } from "../Profile";
+
+import { Container, Header, Heading, Todos } from "./styles";
+
 interface ICurrentTodoState {
   content: string;
   isCompleted: boolean;
@@ -20,6 +22,8 @@ export function Layout() {
   const [isModalActive, setIsModalActive] = useState(false);
   const [currentKeyTodoHasModalEditOpen, setCurrentKeyTodoHasModalEditOpen] =
     useState("");
+
+  const { user } = useAuth();
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("@todo.l")!);
@@ -69,11 +73,13 @@ export function Layout() {
   }
 
   return (
-    <div>
-      <Header>
-        <Logo />
-      </Header>
+    <>
+      <Header />
       <Container>
+        <Heading>
+          <Logo />
+          <Profile user={user} />
+        </Heading>
         <AddTodo addTodoOnState={addTodoOnState} />
 
         {todos.length <= 0 && <NoTodos />}
@@ -89,15 +95,15 @@ export function Layout() {
             />
           ))}
         </Todos>
-      </Container>
 
-      {isModalActive && (
-        <Modal
-          keyTodo={currentKeyTodoHasModalEditOpen}
-          editTodo={editTodo}
-          closeModal={closeModal}
-        />
-      )}
-    </div>
+        {isModalActive && (
+          <Modal
+            keyTodo={currentKeyTodoHasModalEditOpen}
+            editTodo={editTodo}
+            closeModal={closeModal}
+          />
+        )}
+      </Container>
+    </>
   );
 }

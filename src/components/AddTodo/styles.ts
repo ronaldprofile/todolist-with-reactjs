@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: -3rem;
   font-size: 1.6rem;
 
   form {
     > div {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 1.6rem;
 
       > input {
@@ -19,9 +17,8 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 768px) {
     form {
-      font-size: 1.4rem;
       > div {
         display: flex;
         flex-direction: column;

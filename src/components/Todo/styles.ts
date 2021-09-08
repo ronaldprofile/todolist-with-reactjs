@@ -39,7 +39,6 @@ export const Container = styled.div<IContainerProps>`
   }
 
   strong {
-    max-width: 60%;
     word-wrap: break-word;
     text-decoration: ${props => props.isCompleted && "line-through"};
     color: ${props => props.isCompleted && "#747474"};
@@ -51,22 +50,29 @@ export const Container = styled.div<IContainerProps>`
     gap: 1.8rem;
   }
 
-  @media (max-width: 768px) {
-    padding: 1.4rem;
-    font-size: 1.6rem;
+  @media (max-width: 360px) {
+    font-size: 1.4rem;
+  }
 
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
     strong {
+      width: 100% !important;
       order: 1;
-      text-align: center;
+      word-wrap: normal;
     }
 
     .actions {
+      width: 100%;
       padding: 0.8rem 0;
       position: relative;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       &::after {
         content: "";
@@ -79,15 +85,6 @@ export const Container = styled.div<IContainerProps>`
         width: 100%;
         background-color: #eeeeee;
       }
-    }
-  }
-
-  @media (max-width: 360px) {
-    font-size: 1.4rem;
-
-    strong {
-      max-width: 90%;
-      word-wrap: normal;
     }
   }
 `;
