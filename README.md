@@ -1,9 +1,14 @@
 <h1 align="center">todo.list</h1>
 
-<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-03_214035__kJTtlyKQoW.png?updatedAt=1630716073927">
-<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-03_213528_9RmJJK76M.png?updatedAt=1630715806617">
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165447_F_XNc6yyjns.png?updatedAt=1631390224306">
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165411_dlsIwfwFh.png?updatedAt=1631390234482">
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165538_ILUH4mQab.png?updatedAt=1631390242346">
 
-## 🛠 Está em andamento, estou resolvendo um problema com firebase. Logo teremos novidades no app.
+
+## 🚨 Novas novidades em breve
+
+ - Criar uma página convidativa para o app
+ - No componente Profile, criar a função de Logout
 
 
 ## 💻 Projeto
@@ -13,6 +18,7 @@ O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas 
 
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Firebase](https://firebase.google.com/)
 - [Styled-components](https://styled-components.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
 - [uuid](https://www.npmjs.com/package/uuid)
