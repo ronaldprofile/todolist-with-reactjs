@@ -31,15 +31,23 @@ const animationModalContent = keyframes`
 `;
 
 export const ModalContent = styled.div`
+  width: 48rem;
   padding: 6.4rem 3.2rem;
   position: relative;
+
   display: flex;
+  justify-content: center;
   flex-direction: column;
 
-  background-color: #fff;
+  background-color: #121214;
   border-radius: 5px;
 
   animation: ${animationModalContent} 0.3s ease;
+
+  h2,
+  p {
+    color: #fff;
+  }
 
   h2 {
     font-size: 3rem;
@@ -49,6 +57,7 @@ export const ModalContent = styled.div`
 
   p {
     font-size: 1.6rem;
+    filter: brightness(0.9);
   }
 
   img {
@@ -60,26 +69,44 @@ export const ModalContent = styled.div`
     right: 1rem;
 
     cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: rotate(-90deg);
+    }
   }
 
   form {
     margin-top: 3rem;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: column;
 
     gap: 1rem;
 
     input {
-      border: 2px solid #eeeeee;
+      width: 100%;
+      border: 0;
+      outline: none;
+      background-color: #131319;
+      color: #fff;
+
+      transition: border 0.2s;
+
+      &:focus {
+        border: 2px solid #00297f;
+      }
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 500px) {
     width: 90%;
+  }
+
+  @media (max-width: 360px) {
     text-align: left;
 
     h2 {
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
 
     p {

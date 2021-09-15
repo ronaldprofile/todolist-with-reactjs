@@ -4,21 +4,22 @@ interface IUser {
   name: string;
   avatar: string;
 }
-
 interface IProfileProps {
   user: IUser | undefined;
+  setIsModalLogoutActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Profile({ user }: IProfileProps) {
+export function Profile({ user, setIsModalLogoutActive }: IProfileProps) {
   return (
     <Container>
-      <strong>{user?.name || ""}</strong>
+      <strong>{user?.name || "Olá"}</strong>
       <Image
         src={
           user?.avatar ||
-          "https://images-apilist-fun.sfo2.cdn.digitaloceanspaces.com/adorable_avatars_api.png"
+          "https://cdn.pixabay.com/photo/2018/02/06/19/53/parrot-3135551__340.jpg"
         }
-        alt={user?.name}
+        alt={user?.name || "anonymous"}
+        onClick={() => setIsModalLogoutActive(true)}
       />
     </Container>
   );

@@ -1,29 +1,37 @@
-import { FormEvent, useState } from "react";
-import { toast } from "react-toastify";
+import { useState, FormEvent } from "react";
 import { Button } from "../Button";
 
+import { toast } from "react-toastify";
 import closeIcon from "../../images/close.svg";
+
 import { ModalOverlay, ModalContent } from "./styles";
-interface IModalProps {
+
+interface IModalEditProps {
   keyTodo: string;
   editTodo: (key: string, newValue: string) => void;
-  closeModal: () => void;
+  closeModalEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Modal({ closeModal, editTodo, keyTodo }: IModalProps) {
-  const [newTodo, setNewTodo] = useState("");
+export function ModalEdit({
+  closeModalEdit,
+  editTodo,
+  keyTodo
+}: IModalEditProps) {
+  const [updateTodo, setUpdateTodo] = useState("");
 
   function handleForm(event: FormEvent) {
     event.preventDefault();
 
-    if (newTodo.trim() === "") {
+    if (updateTodo.trim() === "") {
       toast.error("Por favor preencha o campo");
       return;
     }
 
-    editTodo(keyTodo, newTodo);
+    editTodo(keyTodo, updateTodo);
+    setUpdateTodo("");
+
     toast.success("Sua tarefa foi editada com sucesso");
-    closeModal();
+    closeModalEdit(false);
   }
 
   return (
@@ -31,7 +39,11 @@ export function Modal({ closeModal, editTodo, keyTodo }: IModalProps) {
       <ModalContent>
         <h2>Editar tarefa</h2>
         <p>Tem certeza que deseja editar essa tarefa?</p>
-        <img onClick={closeModal} src={closeIcon} alt="close icon" />
+        <img
+          onClick={() => closeModalEdit(false)}
+          src={closeIcon}
+          alt="close icon"
+        />
 
         <form onSubmit={handleForm}>
           <div>
@@ -42,8 +54,9 @@ export function Modal({ closeModal, editTodo, keyTodo }: IModalProps) {
               type="text"
               id="newTodo"
               placeholder="Digite sua nova atualização"
-              value={newTodo}
-              onChange={event => setNewTodo(event.target.value)}
+              value={updateTodo}
+              onChange={event => setUpdateTodo(event.target.value)}
+              autoComplete="off"
             />
           </div>
           <Button>Sim, editar</Button>

@@ -2,8 +2,8 @@ import { ButtonHTMLAttributes } from "react";
 
 import { Container } from "./styles";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export function Button({ children, ...rest }: ButtonProps) {
+export function Button({ children, ...rest }: IButtonProps) {
   return <Container {...rest}>{children}</Container>;
 }

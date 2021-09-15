@@ -1,10 +1,10 @@
 import { Container } from "./styles";
 
-interface IStatusTodo {
+interface IStatusTodoProps {
   isCompleted: boolean;
 }
 
-export function StatusTodo({ isCompleted }: IStatusTodo) {
+export function StatusTodo({ isCompleted }: IStatusTodoProps) {
   return (
     <Container isCompleted={isCompleted}>
       {isCompleted ? "Completed" : "In progress"}

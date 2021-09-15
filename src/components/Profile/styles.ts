@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
 
   strong {
@@ -22,4 +23,5 @@ export const Image = styled.img`
   width: 2.8rem;
   height: 2.8rem;
   clip-path: circle();
+  cursor: pointer;
 `;

@@ -2,28 +2,29 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
-import { AddTodo } from "../AddTodo";
-import { Todo } from "../Todo";
-import { NoTodos } from "../NoTodos";
-import { Modal } from "../Modal";
-import { Logo } from "../Logo";
-import { Profile } from "../Profile";
+import { AddTodo } from "../../components/AddTodo";
+import { Todo } from "../../components/Todo";
+import { NoTodos } from "../../components/NoTodos";
+import { Logo } from "../../components/Logo";
+import { Profile } from "../../components/Profile";
+import { ModalEdit } from "../../components/ModalEdit";
+import { ModalLogout } from "../../components/ModalLogout";
 
 import { Container, Header, Heading, Todos } from "./styles";
 
-interface ICurrentTodoState {
+interface ITodo {
   content: string;
   isCompleted: boolean;
   key: string;
 }
 
-export function Layout() {
-  const [todos, setTodos] = useState<ICurrentTodoState[]>([]);
-  const [isModalActive, setIsModalActive] = useState(false);
-  const [currentKeyTodoHasModalEditOpen, setCurrentKeyTodoHasModalEditOpen] =
-    useState("");
-
+export function Dashboard() {
+  const [todos, setTodos] = useState<ITodo[]>([]);
   const { user } = useAuth();
+
+  const [isModalEditActive, setIsModalEditActive] = useState(false);
+  const [isModalLogoutActive, setIsModalLogoutActive] = useState(false);
+  const [whichTaskShouldUpdate, setWhichTaskShouldUpdate] = useState("");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("@todo.l")!);
@@ -35,7 +36,7 @@ export function Layout() {
     localStorage.setItem("@todo.l", JSON.stringify(todos));
   }, [todos]);
 
-  function addTodoOnState(todo: ICurrentTodoState) {
+  function addTodoOnState(todo: ITodo) {
     setTodos([...todos, todo]);
   }
 
@@ -63,13 +64,9 @@ export function Layout() {
     toast.success("Tarefa deletada com sucesso");
   }
 
-  function openModal(keyTodo: string) {
-    setIsModalActive(true);
-    setCurrentKeyTodoHasModalEditOpen(keyTodo);
-  }
-
-  function closeModal() {
-    setIsModalActive(false);
+  function openModalEdit(keyTodo: string) {
+    setIsModalEditActive(true);
+    setWhichTaskShouldUpdate(keyTodo);
   }
 
   return (
@@ -78,7 +75,10 @@ export function Layout() {
       <Container>
         <Heading>
           <Logo />
-          <Profile user={user} />
+          <Profile
+            user={user}
+            setIsModalLogoutActive={setIsModalLogoutActive}
+          />
         </Heading>
         <AddTodo addTodoOnState={addTodoOnState} />
 
@@ -91,17 +91,21 @@ export function Layout() {
               todo={todo}
               deleteTodo={deleteTodo}
               markTodoAsCompleted={markTodoAsCompleted}
-              openModal={openModal}
+              openModalEdit={openModalEdit}
             />
           ))}
         </Todos>
 
-        {isModalActive && (
-          <Modal
-            keyTodo={currentKeyTodoHasModalEditOpen}
+        {isModalEditActive && (
+          <ModalEdit
+            keyTodo={whichTaskShouldUpdate}
             editTodo={editTodo}
-            closeModal={closeModal}
+            closeModalEdit={setIsModalEditActive}
           />
+        )}
+
+        {isModalLogoutActive && (
+          <ModalLogout setIsModalLogout={setIsModalLogoutActive} />
         )}
       </Container>
     </>

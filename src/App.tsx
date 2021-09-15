@@ -1,10 +1,10 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import { Layout } from "./components/Layout";
-import { Login } from "./components/Login";
 import { AuthContextProvider } from "./contexts/AuthContext";
 
 import "./services/firebase";
+
+import { Home } from "./pages/Home";
+import { Dashboard } from "./pages/Dashboard";
 
 import { GlobalStyles } from "./styles/global";
 
@@ -15,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <AuthContextProvider>
-            <Route exact path="/" component={Login} />
-            <Route path="/dashboard" component={Layout} />
+            <Route exact path="/" component={Home} />
+            <Route path="/app/dashboard" component={Dashboard} />
           </AuthContextProvider>
         </Switch>
       </BrowserRouter>

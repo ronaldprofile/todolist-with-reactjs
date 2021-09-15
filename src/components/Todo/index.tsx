@@ -13,16 +13,16 @@ interface ITodo {
 
 interface ITodoProps {
   todo: ITodo;
-  markTodoAsCompleted: (key: string) => void;
-  deleteTodo: (key: string) => void;
-  openModal: (todoKey: string) => void;
+  markTodoAsCompleted: (todoKey: string) => void;
+  deleteTodo: (todoKey: string) => void;
+  openModalEdit: (todoKey: string) => void;
 }
 
 export function Todo({
   todo,
   markTodoAsCompleted,
   deleteTodo,
-  openModal
+  openModalEdit
 }: ITodoProps) {
   return (
     <Container isCompleted={todo.isCompleted}>
@@ -38,7 +38,10 @@ export function Todo({
             </button>
           ) : (
             <>
-              <button onClick={() => openModal(todo.key)} title="editar tarefa">
+              <button
+                onClick={() => openModalEdit(todo.key)}
+                title="editar tarefa"
+              >
                 <img src={editIcon} alt="edit icon" />
               </button>
 
