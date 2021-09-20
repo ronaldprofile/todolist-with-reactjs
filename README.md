@@ -1,15 +1,17 @@
 <h1 align="center">todo.list</h1>
 
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/page_home_AULSsxX1GC.png?updatedAt=1631738115621">
 <img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165447_F_XNc6yyjns.png?updatedAt=1631390224306">
 <img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165411_dlsIwfwFh.png?updatedAt=1631390234482">
-<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-11_165538_ILUH4mQab.png?updatedAt=1631390242346">
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-15_173435_f8VN-VQhJ.png?updatedAt=1631738115792">
+<img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-15_173716_PQQ02N4uV7.png?updatedAt=1631738259180">
 
 
-## 🚨 Novas novidades em breve
+## 🚨 Novidades
 
- - Criar uma página convidativa para o app
- - No componente Profile, criar a função de Logout
-
+ - Foi criada uma página home simples, com a animação igual ao site da [vercel](https://vercel.com)
+ - No componente Profile foi adicionada a função de logout do app, basta clicar na imagem do perfil e o modal de confirmação aparecerá.
+ - Mudanças no estilos do modal edit
 
 ## 💻 Projeto
 
