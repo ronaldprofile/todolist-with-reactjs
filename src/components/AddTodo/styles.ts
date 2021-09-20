@@ -12,7 +12,7 @@ export const Container = styled.div`
       > input {
         width: 100%;
         outline: none;
-        border: 1px solid #e4e4e4;
+        border: 1px solid var(--second-gray-color);
       }
 
       > button {

@@ -4,8 +4,8 @@ export const Container = styled.button`
   height: 5rem;
   padding: 0 2rem;
 
-  background-color: #00297f;
-  color: #fff;
+  background-color: var(--second-primary-color);
+  color: var(--white);
 
   font-size: 1.6rem;
   font-weight: 700;

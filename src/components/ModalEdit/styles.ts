@@ -15,7 +15,7 @@ export const ModalOverlay = styled.div`
   align-items: center;
 
   text-align: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--background-overlay-modal);
 `;
 
 const animationModalContent = keyframes`
@@ -39,14 +39,14 @@ export const ModalContent = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  background-color: #121214;
+  background-color: var(--black-one-color);
   border-radius: 5px;
 
   animation: ${animationModalContent} 0.3s ease;
 
   h2,
   p {
-    color: #fff;
+    color: var(--white);
   }
 
   h2 {
@@ -87,13 +87,13 @@ export const ModalContent = styled.div`
       width: 100%;
       border: 0;
       outline: none;
-      background-color: #131319;
-      color: #fff;
+      background-color: var(--black-two-color);
+      color: var(--white);
 
       transition: border 0.2s;
 
       &:focus {
-        border: 2px solid #00297f;
+        border: 2px solid var(--second-primary-color);
       }
     }
   }

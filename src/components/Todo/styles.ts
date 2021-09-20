@@ -15,9 +15,8 @@ export const Container = styled.div<IContainerProps>`
 
   font-size: 1.6rem;
   font-weight: 500;
-  background-color: #fff;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
   &::before {
     content: "";
@@ -29,7 +28,7 @@ export const Container = styled.div<IContainerProps>`
     left: -1px;
 
     border-radius: 5px;
-    background-color: #00297f;
+    background-color: var(--second-primary-color);
 
     transition: height 0.2s;
   }
@@ -41,7 +40,7 @@ export const Container = styled.div<IContainerProps>`
   strong {
     word-wrap: break-word;
     text-decoration: ${props => props.isCompleted && "line-through"};
-    color: ${props => props.isCompleted && "#747474"};
+    color: ${props => props.isCompleted && "var(--todo-completed-text)"};
   }
 
   .actions {
@@ -83,7 +82,7 @@ export const Container = styled.div<IContainerProps>`
 
         height: 1px;
         width: 100%;
-        background-color: #eeeeee;
+        background-color: var(--gray);
       }
     }
   }
@@ -100,7 +99,7 @@ export const Buttons = styled.div`
 
     font-size: 0;
     background: transparent;
-    border: 1px solid #eeeeee;
+    border: 1px solid var(--gray);
 
     transition: transform 0.2s;
     &:hover {

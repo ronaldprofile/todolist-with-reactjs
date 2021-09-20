@@ -3,10 +3,22 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   
   :root {
+    --primary-color: #00004f;
+    --second-primary-color: #00297f;
+    --white: #fff;
+    --gray: #eeeeee;
+    --second-gray-color:#e4e4e4;
+    --green: #00ff00;
+        
+    --background-overlay-modal: rgba(0, 0, 0, 0.7);
+   
+    --black-one-color: #121214;
+    --black-two-color: #131319;
+    --body-background: #fafafa;
     --todo-in-progress: rgba(232, 248, 232, 1);
-    --green-rgba: rgba(54, 178, 54, 1);
-
+    --green-rgba: rgba(54, 178, 54, 1); 
     --todo-completed:  rgba(250, 236, 235, 1);
+    --todo-completed-text: #747474;
     --red-rgba:  rgba(235, 59, 53, 1);
   }
   
@@ -22,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     height: 100vh;
-    background-color: #fafafa;
+    background-color: var(--body-background);
   }
   
   body, input, button {

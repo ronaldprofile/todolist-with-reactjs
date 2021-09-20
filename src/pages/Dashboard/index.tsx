@@ -4,13 +4,13 @@ import { toast } from "react-toastify";
 
 import { AddTodo } from "../../components/AddTodo";
 import { Todo } from "../../components/Todo";
-import { NoTodos } from "../../components/NoTodos";
 import { Logo } from "../../components/Logo";
 import { Profile } from "../../components/Profile";
 import { ModalEdit } from "../../components/ModalEdit";
 import { ModalLogout } from "../../components/ModalLogout";
 
-import { Container, Header, Heading, Todos } from "./styles";
+import illustrationAstronaut from "../../images/astronaut.svg";
+import { Container, Header, Heading, NoTodos, Todos } from "./styles";
 
 interface ITodo {
   content: string;
@@ -82,7 +82,16 @@ export function Dashboard() {
         </Heading>
         <AddTodo addTodoOnState={addTodoOnState} />
 
-        {todos.length <= 0 && <NoTodos />}
+        {todos.length <= 0 && (
+          <NoTodos>
+            <img src={illustrationAstronaut} alt="astronaut illustration" />
+            <p>
+              Nenhuma tarefa por aqui...
+              <br />
+              comece adicionando sua primeira tarefa.
+            </p>
+          </NoTodos>
+        )}
 
         <Todos>
           {todos.map(todo => (

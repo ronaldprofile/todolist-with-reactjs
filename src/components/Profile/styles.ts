@@ -9,7 +9,7 @@ export const Container = styled.div`
   strong {
     font-size: 1.6rem;
     font-weight: 500;
-    color: #fff;
+    color: var(--white);
   }
 
   @media (max-width: 360px) {

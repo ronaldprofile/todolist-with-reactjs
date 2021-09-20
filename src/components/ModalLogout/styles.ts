@@ -15,7 +15,7 @@ export const ModalOverlay = styled.div`
   align-items: center;
 
   text-align: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--background-overlay-modal);
 `;
 
 const animationModalContent = keyframes`
@@ -35,7 +35,7 @@ export const ModalContent = styled.div`
   padding: 6.4rem 0;
   display: flex;
   flex-direction: column;
-  background-color: #121214;
+  background-color: var(--black-one-color);
   border-radius: 5px;
 
   animation: ${animationModalContent} 0.3s ease;
@@ -44,7 +44,7 @@ export const ModalContent = styled.div`
     margin-bottom: 3rem;
     font-size: 2.5rem;
 
-    color: #fff;
+    color: var(--white);
   }
 
   @media (max-width: 500px) {
@@ -76,10 +76,10 @@ export const Buttons = styled.div`
   }
 
   button:last-child {
-    background-color: #131319;
+    background-color: var(--black-two-color);
 
     &:hover {
-      background-color: #121214;
+      background-color: var(--black-one-color);
     }
   }
 `;
