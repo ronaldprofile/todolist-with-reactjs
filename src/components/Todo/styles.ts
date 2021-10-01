@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IContainerProps {
   isCompleted: boolean;
+  isDragging: boolean;
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -17,6 +18,7 @@ export const Container = styled.div<IContainerProps>`
   font-weight: 500;
   background-color: var(--white);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  cursor: grab;
 
   &::before {
     content: "";
@@ -48,6 +50,23 @@ export const Container = styled.div<IContainerProps>`
     align-items: center;
     gap: 1.8rem;
   }
+
+  ${props =>
+    props.isDragging &&
+    css`
+      &:hover::before {
+        height: 0;
+      }
+
+      border: 0.2rem dashed rgba(0, 0, 0, 0.3);
+      background: transparent;
+      cursor: grabbing;
+
+      strong,
+      .actions {
+        opacity: 0;
+      }
+    `}
 
   @media (max-width: 360px) {
     font-size: 1.4rem;

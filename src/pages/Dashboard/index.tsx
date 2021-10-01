@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import produce from "immer";
 import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
@@ -69,6 +70,17 @@ export function Dashboard() {
     setWhichTaskShouldUpdate(keyTodo);
   }
 
+  function moveListItem(from: number, to: number) {
+    setTodos(
+      produce(todos, draft => {
+        const dragged = draft[from];
+
+        draft.splice(from, 1);
+        draft.splice(to, 0, dragged);
+      })
+    );
+  }
+
   return (
     <>
       <Header />
@@ -94,10 +106,12 @@ export function Dashboard() {
         )}
 
         <Todos>
-          {todos.map(todo => (
+          {todos.map((todo, indexTodo) => (
             <Todo
               key={todo.key}
               todo={todo}
+              indexTodo={indexTodo}
+              moveListItem={moveListItem}
               deleteTodo={deleteTodo}
               markTodoAsCompleted={markTodoAsCompleted}
               openModalEdit={openModalEdit}
