@@ -11,7 +11,7 @@
 - Foi criada uma página home simples, com a animação igual ao site da [vercel](https://vercel.com)
 - No componente Profile foi adicionada a função de logout do app, basta clicar na imagem do perfil e o modal de confirmação aparecerá.
 - Mudanças no estilos do modal edit
-- Drag in Drop para ordenar suas tarefas como quiser (Em breve) 🔥
+- Drag in Drop para ordenar suas tarefas como quiser.
 
 ## 💻 Projeto
 
@@ -22,6 +22,7 @@ O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas 
 - No projeto utilizamos o firebase, foi usado um único serviço: autenticação de usuários.
 - O user só precisa fazer login uma única vez.
 - Os dados são salvos no próprio navegador do user, através do **localStorage**. Uma boa solução para esse cenário, quem sabe lá na frente usamos um banco de dados.
+- No projeto usei um pacote chamado [immer](https://immerjs.github.io/immer/) . É um pacote minúsculo que permite trabalhar com o estado imutável de uma forma mais conveniente. 
 
 ## ✨ Tecnologias
 
@@ -30,6 +31,7 @@ O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas 
 - [Firebase](https://firebase.google.com/)
 - [Styled-components](https://styled-components.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [immer](https://immerjs.github.io/immer/)
 
 ## 🚀 Executar o projeto
 
