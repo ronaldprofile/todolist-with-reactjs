@@ -15,7 +15,7 @@
 
 ## 💻 Projeto
 
-O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas agora é com ReactJS. Basicamente o user consegue adicionar, editar e excluir suas tarefas. O armazenamento dos dados é feito via LocalStorage.
+O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas agora é com ReactJS. Basicamente o user pode adicionar, editar e excluir suas tarefas.
 
 ## 🤩 Detalhes do projeto
 
