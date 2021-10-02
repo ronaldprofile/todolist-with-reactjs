@@ -9,6 +9,13 @@ export const Wrapper = styled.div`
   max-width: 1048px;
   padding: 2rem;
   margin: 0 auto;
+
+  @media (max-width: 420px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Header = styled.header`
@@ -92,10 +99,17 @@ export const Title = styled.h1`
     animation-delay: 6.66s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     span {
       font-size: 12.8rem;
       line-height: 12.8rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    span {
+      font-size: 9.7rem;
+      line-height: 9.7rem;
     }
   }
 
@@ -112,6 +126,14 @@ export const Title = styled.h1`
       font-size: 7.4rem;
       line-height: 7.4rem;
       letter-spacing: -0.9rem;
+    }
+  }
+
+  @media (max-width: 240px) {
+    span {
+      font-size: 5.5rem;
+      line-height: 5.5rem;
+      letter-spacing: -0.5rem;
     }
   }
 `;
