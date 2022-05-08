@@ -6,25 +6,24 @@
 <img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-15_173435_f8VN-VQhJ.png?updatedAt=1631738115792">
 <img src="https://ik.imagekit.io/gczsuhmv3/todolist_reactjs___/Captura_de_tela_2021-09-15_173716_PQQ02N4uV7.png?updatedAt=1631738259180">
 
-## 🚨 Novidades
+## News
 
-- Foi criada uma página home simples, com a animação igual ao site da [vercel](https://vercel.com)
-- No componente Profile foi adicionada a função de logout do app, basta clicar na imagem do perfil e o modal de confirmação aparecerá.
-- Mudanças no estilos do modal edit
-- Drag in Drop para ordenar suas tarefas como quiser.
+- simple home page, with the same animation as the [vercel](https://vercel.com) website.
+- app logout function, just click on the profile picture and the confirmation modal will appear.
+- Drag in Drop to order your tasks.
 
-## 💻 Projeto
+## 💻 Project
 
-O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas agora é com ReactJS. Basicamente o user pode adicionar, editar e excluir suas tarefas.
+The so famous whole list of life, I've done this type of project other times, but now I wanted to create it with **ReactJS**. Basically the user can add, edit and delete their tasks.
 
-## 🤩 Detalhes do projeto
+## Details
 
-- No projeto utilizamos o firebase, foi usado um único serviço: autenticação de usuários.
-- O user só precisa fazer login uma única vez.
-- Os dados são salvos no próprio navegador do user, através do **localStorage**. Uma boa solução para esse cenário, quem sabe lá na frente usamos um banco de dados.
-- No projeto usei um pacote chamado [immer](https://immerjs.github.io/immer/) . É um pacote minúsculo que permite trabalhar com o estado imutável de uma forma mais conveniente. 
+- In the project the firebase authentication service is used.
+- The user only needs to login once.
+- User data is saved in the browser via localStorage. A good solution for this scenario, maybe in the future we will use a database.
+- In the project I used a package called [immer](https://immerjs.github.io/immer/) . It's a tiny package that lets you work with the immutable state in a more convenient way.
 
-## ✨ Tecnologias
+## 🚀 Techs
 
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
@@ -33,8 +32,8 @@ O tão famoso todo list da vida, já fiz esse tipo de projeto outras vezes, mas 
 - [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
 - [immer](https://immerjs.github.io/immer/)
 
-## 🚀 Executar o projeto
+## Execute
 
-- Clone o repo com `git clone https://github.com/ronaldprofile/todolist-with-reactjs.git`
-- Instale as dependências do projeto `yarn`
-- Inicie o servidor `yarn start`
+- clone `git clone https://github.com/ronaldprofile/todolist-with-reactjs.git`
+- install dependencies `yarn`
+- start server `yarn start`
